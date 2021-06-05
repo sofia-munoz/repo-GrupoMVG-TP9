@@ -8,10 +8,10 @@
 		<version>2.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ar.edu.unju.fi.tp8</groupId>
-	<artifactId>Grupo_MVG_TP8</artifactId>
+	<groupId>ar.edu.unju.fi.tp9</groupId>
+	<artifactId>Grupo_MVG_TP9</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Grupo_MVG_TP8</name>
+	<name>Grupo_MVG_TP9</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>16</java.version>
