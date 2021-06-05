@@ -4,7 +4,9 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.Valid;
@@ -80,6 +84,12 @@ public class Cliente {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "cuen_id")
 	private Cuenta cuenta;
+	
+	@ManyToMany
+	@JoinTable(name="clientes_beneficios",
+			joinColumns = @JoinColumn(name="cli_id"),
+			inverseJoinColumns = @JoinColumn(name="ben_id"))
+	private List<Beneficio> beneficios = new ArrayList<Beneficio>();
 	
 	public Cliente() {
 		// TODO Auto-generated constructor stub
