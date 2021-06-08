@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.tp9.service.imp;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,8 @@ import ar.edu.unju.fi.tp9.service.IBeneficioService;
 @Service("beneficioServiceMysql")
 public class BeneficioServiceMysqlImp implements IBeneficioService {
 
+	List <Beneficio> beneficiosEncontrados = new ArrayList <Beneficio>();
+	
 	@Autowired
 	private Beneficio beneficio;
 	@Autowired
@@ -39,6 +42,28 @@ public class BeneficioServiceMysqlImp implements IBeneficioService {
 	public Optional<Beneficio> getBeneficioPorId(Long id) {
 		Optional<Beneficio> beneficio = beneficioRepository.findById(id);
 		return beneficio;
+	}
+
+	@Override
+	public List<Beneficio> obtenerBeneficiosEncontrados() {
+		
+		return beneficiosEncontrados;
+	}
+
+	@Override
+	public void agregarBeneficioEncontrado(Beneficio beneficio) {
+		beneficiosEncontrados.add(beneficio);
+		
+	}
+
+	@Override
+	public void quitarBeneficioLista(Long id) {
+		for(int i=0; i<beneficiosEncontrados.size();i++) {
+			if(beneficiosEncontrados.get(i).getId() == id) {
+				beneficiosEncontrados.remove(i);
+			}
+		}
+		
 	}
 
 }
