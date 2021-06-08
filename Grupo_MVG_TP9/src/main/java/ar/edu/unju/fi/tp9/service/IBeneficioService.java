@@ -11,5 +11,7 @@ public interface IBeneficioService {
 	public List<Beneficio> getBeneficios();
 	public Beneficio getBeneficio();
 	public Optional<Beneficio> getBeneficioPorId(Long id);
-	
+	public List<Beneficio> obtenerBeneficiosEncontrados();
+	public void agregarBeneficioEncontrado(Beneficio beneficio);
+	public void quitarBeneficioLista(Long id);
 }
