@@ -48,10 +48,9 @@ public class ClienteController {
 		model.addAttribute("cliente", clienteService.getCliente());
 		//model.addAttribute("cuenta", cuenta);
 		model.addAttribute("beneficio", beneficio);
-		model.addAttribute("beneficios", beneficioService.obtenerBeneficiosEncontrados());
+		model.addAttribute("beneficosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
 		return "nuevocliente";
 	}
-	
 	@PostMapping("/cliente/guardar")
 	public ModelAndView guardarClientePage(@Valid @ModelAttribute("cliente")Cliente cliente, BindingResult resultadoValidacion) {
 		ModelAndView model;

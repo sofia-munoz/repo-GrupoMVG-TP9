@@ -30,7 +30,7 @@ public class BeneficioController {
 	private IBeneficioService beneficioService;
 	
 	@GetMapping("/beneficio/buscar")
-	public String buscarBeneficio(@RequestParam(name = "id")long id, Model model, @ModelAttribute(name = "cliente")Cliente cliente) {
+	public String buscarBeneficio(@RequestParam(name = "id")long id, Model model,@ModelAttribute(name="beneficio")Beneficio beneficio,@ModelAttribute(name = "cliente")Cliente cliente) {
 		Optional<Beneficio> beneficioEncontrado = beneficioService.getBeneficioPorId(id);
 		String mensaje = "";
 		if(beneficioEncontrado != null) {
@@ -40,7 +40,7 @@ public class BeneficioController {
 			mensaje = "No existe el beneficio";
 			model.addAttribute("mensaje",mensaje);
 		}
-		model.addAttribute("beneficioEncontrado", beneficioService.obtenerBeneficiosEncontrados());
+		model.addAttribute("beneficosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
 		return "nuevocliente";
 	}
 	
