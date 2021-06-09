@@ -95,9 +95,9 @@ public class Cliente {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cliente(Long id, String tipoDocumento, int nroDocumento, String nombreApellido, String email,
-			String password, LocalDate fechaNacimiento, int codigoAreaTelefono, int nroTelefono,
-			LocalDate fechaUltimaCompra, Cuenta cuenta) {
+	
+
+	public Cliente(Long id, String tipoDocumento, int nroDocumento, String nombreApellido, String email, String password, LocalDate fechaNacimiento, int codigoAreaTelefono, int nroTelefono, LocalDate fechaUltimaCompra, Cuenta cuenta, List<Beneficio> beneficios) {
 		super();
 		this.id = id;
 		this.tipoDocumento = tipoDocumento;
@@ -110,7 +110,10 @@ public class Cliente {
 		this.nroTelefono = nroTelefono;
 		this.fechaUltimaCompra = fechaUltimaCompra;
 		this.cuenta = cuenta;
+		this.beneficios = beneficios;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -236,6 +239,14 @@ public class Cliente {
 
 	public void setCuenta(Cuenta cuenta) {
 		this.cuenta = cuenta;
+	}
+
+	public List<Beneficio> getBeneficios() {
+		return beneficios;
+	}
+
+	public void setBeneficios(List<Beneficio> beneficios) {
+		this.beneficios = beneficios;
 	}
 
 	@Override
