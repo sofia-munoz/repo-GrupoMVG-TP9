@@ -56,6 +56,7 @@ public class ClienteController {
 		ModelAndView model;
 		if(resultadoValidacion.hasErrors()) {
 			model = new ModelAndView("nuevocliente");
+			model.addObject("beneficio", beneficio);
 			model.addObject("beneficios", beneficioService.obtenerBeneficiosEncontrados());
 			return model;
 		}

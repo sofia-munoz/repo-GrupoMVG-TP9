@@ -26,12 +26,7 @@
 									<th scope="col">Tipo de documento</th>
 									<th scope="col">Número de documento</th>
 									<th scope="col">Apellido y Nombres</th>
-									<th scope="col">E-mail</th>
-									<th scope="col">Fecha de nacimiento</th>
-									<th scope="col">Fecha de UltimaCompra</th>
-									<th scope="col">Edad</th>
-									<th scope="col">Teléfono</th>
-									<th colspan="3">Datos adicionales</th>
+									<th scope="col">Beneficios</th>
 									<th scope="col">Acciones</th>
 								</tr>
 							</thead>
@@ -40,15 +35,11 @@
 									<td th:text="${cli.tipoDocumento}"></td>
 									<td th:text="${cli.nroDocumento}"></td>
 									<td th:text="${cli.nombreApellido}"></td>
-									<td th:text="${cli.email}"></td>
-									<td th:text="${#temporals.format(cli.fechaNacimiento, 'dd/MM/yyyy')}"></td>
-									<td th:text="${#temporals.format(cli.fechaUltimaCompra, 'dd/MM/yyyy')}"></td>
-									<td th:text="${cli.getEdad}"></td>
-									<td th:text="${cli.codigoAreaTelefono} + '-' + ${cli.nroTelefono}"></td>
-									
-									<td th:text="'Tiempo desde ultima compra: ' + ${cli.getTiempoDesdeUltimaCompra}"></td>
-									<td th:text="'Dias desde la fecha de nacimiento: ' + ${cli.getTiempoDesdeFechaNacimiento}"></td>
-									<td th:text="'Proximo cumpleaños en: ' + ${cli.getTiempoHastaCumpleanios}"></td>
+									<td >
+										<span th:each="ben : ${cli.beneficios}">
+											<p th:text="${ben.descripcion}"></p>
+										</span>
+									</td>
 									<td> 
 										<a th:href="@{/cliente/editar/}+${cli.id}" class="btn btn-warning">Editar</a>
 										<a th:href="@{/cliente/eliminar/}+${cli.id}" class="btn btn-danger">Eliminar</a>

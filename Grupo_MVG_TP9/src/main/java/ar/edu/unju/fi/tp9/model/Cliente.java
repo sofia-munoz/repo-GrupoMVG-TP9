@@ -48,7 +48,7 @@ public class Cliente {
 	private int nroDocumento;
 	
 	@NotEmpty(message = "Debe ingresar nombre y apelldio")
-	@Size(min=15, max=300, message = "El nombre y apellido debe tener como minimo 15 caracteres y como maximo 300")
+	@Size(min=7, max=300, message = "El nombre y apellido debe tener como minimo 15 caracteres y como maximo 300")
 	@Column(name = "cli_nombreApellido", length = 300)
 	private String nombreApellido;
 	
@@ -70,7 +70,7 @@ public class Cliente {
 	private int codigoAreaTelefono;
 	
 	@Min(value = 1000000, message = "El numero debe ser mayor a 1000000")
-	@Max(value= 9999999,message = "El numero de telefono no debe superar los 9999999")
+	@Max(value= 999999999,message = "El numero de telefono no debe superar los 9999999")
 	@Column(name = "cli_nroTelefono")
 	private int nroTelefono;
 	
