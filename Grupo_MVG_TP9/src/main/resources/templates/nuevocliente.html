@@ -17,22 +17,26 @@
 			<div class="row">
 				<div class="col-md-10">
 					
-					<h3> BENEFICIOS</h3>
-						
-					<!--								 NUEVO						 -->
-					<div class="col-md-8 justify-content-left">
+					<h1 align="center">Nuevo cliente</h1>
+					<h1>Beneficios</h1>
+					<div>						
+						<!--								 NUEVO						 -->
 						<form th:action="@{/beneficio/buscar}" th:object="${beneficio}" th:method="GET">
 							<div class="form-group row">
-								<label for="id" class="col-sm-3 col-form-label">Numero beneficio</label>
-								<div class="col-sm-5">
+								<label for="id" class="col-md-3 col-form-label">Numero beneficio</label>
+								<div class="col-md-7">
 									<input type="number" class="form-control" id="id" th:field="*{id}">
 								</div>
+								<div class="alert alert-danger" role="alert" th:if="${mensaje}" th:text="${mensaje}"></div>
 							</div>
-							<button class="btn btn-primary offset-2" type="submit">Buscar</button>
-							<div class="form-text text-danger col-sm-10 offset-2" th:if="${mensaje}" th:text="${mensaje}"></div>
+							<div class="form-group row">
+							    <div class="col-md-7">
+							      	<button type="submit" class="btn btn-info">Buscar</button>
+							   	</div>
+							</div>
 						</form>
-					</div>
-						<br><br>
+						
+						<br>
 						<!-- LISTA DE BENEFICIOS -->
 						<div class="table-responsive">
 							<table class="table table-hover table-dark text-center">
@@ -53,18 +57,20 @@
 									</tr>
 								</tbody>
 							</table>
-							
+								
 						</div>
+					</div>
+					<br>
 				  	<!--								 NUEVO						 -->
 					
-					<h1 align="center">Nuevo cliente</h1>
+					<h1>Datos del cliente</h1>
 					<form th:action="@{/cliente/guardar}" th:object="${cliente}" method="POST">
 					<input type="hidden" th:field="*{id}"/>
 					<input type="hidden" th:field="*{cuenta.id}"/>
 					<!-- DATOS DEL CLIENTE  -->
 						<fieldset class="form-group row">
-						    <legend class="col-form-label col-md-4 float-md-left pt-0">Tipo de documento</legend>
-						    <div class="col-md-8">
+						    <legend class="col-form-label col-md-3 float-md-left pt-0">Tipo de documento</legend>
+						    <div class="col-md-7">
 						      <div class="form-check">			      	
 						        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="DNI" th:field="*{tipoDocumento}">
 						        <label class="form-check-label" for="tipoDocumento">
@@ -78,98 +84,98 @@
 						          Pasaporte
 						        </label>
 						      </div>
-						      <div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('tipoDocumento')}" th:errors="*{tipoDocumento}"></div>
+						      <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('tipoDocumento')}" th:errors="*{tipoDocumento}"></div>
 						    </div>
 						</fieldset>
 						
 						
 					  	<div class="form-group row">
-					    	<label for="nroDocumento" class="col-md-4 col-form-label">Número de documento</label>
-					    	<div class="col-md-8">
+					    	<label for="nroDocumento" class="col-md-3 col-form-label">Número de documento</label>
+					    	<div class="col-md-7">
 					      		<input type="number" class="form-control" id="nroDocumento" th:field="*{nroDocumento}">
+					      		<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nroDocumento')}" th:errors="*{nroDocumento}"></div>
 					    	</div>
-					    	<div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('nroDocumento')}" th:errors="*{nroDocumento}"></div>
 					  	</div>
 					  		  
 					  	<div class="form-group row">
-					    	<label for="nombreApellido" class="col-md-4 col-form-label">Nombre y Apellido</label>
-					    	<div class="col-md-8">
+					    	<label for="nombreApellido" class="col-md-3 col-form-label">Nombre y Apellido</label>
+					    	<div class="col-md-7">
 					      		<input type="text" class="form-control" id="nombreApellido" th:field="*{nombreApellido}">
+					      		<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nombreApellido')}" th:errors="*{nombreApellido}"></div>
 					    	</div>
-					    	<div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('nombreApellido')}" th:errors="*{nombreApellido}"></div>
 					  	</div>		  
 					  
 					  	<div class="form-group row">
-					    	<label for="email" class="col-md-4 col-form-label">E-mail</label>
-					    	<div class="col-md-8">
+					    	<label for="email" class="col-md-3 col-form-label">E-mail</label>
+					    	<div class="col-md-7">
 					      		<input type="email" class="form-control" id="email" th:field="*{email}">
+					      		<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 					    	</div>
-					    	<div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 					  	</div>
 					  
 					  	<div class="form-group row">
-					    	<label for="password" class="col-md-4 col-form-label">Password</label>
-					    	<div class="col-md-8">
+					    	<label for="password" class="col-md-3 col-form-label">Password</label>
+					    	<div class="col-md-7">
 					      		<input type="password" class="form-control" id="password" th:field="*{password}"/>
+					      		<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
 					    	</div>
-					    	<div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
 					  	</div>		  
 					  
 					  	<div class="form-group row">
-					    	<label for="fechaNacimiento" class="col-md-4 col-form-label">Fecha de nacimiento</label>
-					    	<div class="col-md-8">
+					    	<label for="fechaNacimiento" class="col-md-3 col-form-label">Fecha de nacimiento</label>
+					    	<div class="col-md-7">
 					      		<input type="date" class="form-control" id="fechaNacimiento" th:field="*{fechaNacimiento}">
+					      		<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
 					    	</div>
-					    	<div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
 					  	</div>		  
 					  
 					  	<div class="form-group row">
-					    	<label for="codigoAreaTelefono" class="col-md-4 col-form-label">Código de Area</label>
-					    	<div class="col-md-8">
+					    	<label for="codigoAreaTelefono" class="col-md-3 col-form-label">Código de Area</label>
+					    	<div class="col-md-7">
 					      		<input type="number" class="form-control" id="codigoAreaTelefono" th:field="*{codigoAreaTelefono}">
+					      		<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('codigoAreaTelefono')}" th:errors="*{codigoAreaTelefono}"></div>
 					    	</div>
-					    	<div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('codigoAreaTelefono')}" th:errors="*{codigoAreaTelefono}"></div>
 					  	</div>		  
 					  
 					  	<div class="form-group row">
-					    	<label for="nroTelefono" class="col-md-4 col-form-label">Número de teléfono</label>
-					    	<div class="col-md-8">
+					    	<label for="nroTelefono" class="col-md-3 col-form-label">Número de teléfono</label>
+					    	<div class="col-md-7">
 					      		<input type="number" class="form-control" id="nroTelefono" th:field="*{nroTelefono}">
+					      		<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nroTelefono')}" th:errors="*{nroTelefono}"></div>
 					    	</div>
-					    	<div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('nroTelefono')}" th:errors="*{nroTelefono}"></div>
 					  	</div>
 					  		  
 					  	<div class="form-group row">
-					    	<label for="fechaUltimaCompra" class="col-md-4 col-form-label">Fecha de última compra</label>
-					    	<div class="col-md-8">
+					    	<label for="fechaUltimaCompra" class="col-md-3 col-form-label">Fecha de última compra</label>
+					    	<div class="col-md-7">
 					      		<input type="date" class="form-control" id="fechaUltimaCompra" th:field="*{fechaUltimaCompra}">
+					      		<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('fechaUltimaCompra')}" th:errors="*{fechaUltimaCompra}"></div>
 					    	</div>
-					    	<div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('fechaUltimaCompra')}" th:errors="*{fechaUltimaCompra}"></div>
 					  	</div>
 					  	
 					  	<!-- DATOS PARA CUENTA  -->
-					  	<h1 align="center">Datos de la cuenta</h1>
+					  	<h1>Datos de la cuenta</h1>
 					  	
 					  	<div class="form-group row">
-					    	<label for="saldo" class="col-md-4 col-form-label">Saldo</label>
-					    	<div class="col-md-8">
+					    	<label for="saldo" class="col-md-3 col-form-label">Saldo</label>
+					    	<div class="col-md-7">
 					      		<input type="number" class="form-control" id="sueldo" th:field="*{cuenta.saldo}">
+					      		<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('cuenta.saldo')}" th:errors="*{cuenta.saldo}"></div>
 					    	</div>
-					    	<div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('cuenta.saldo')}" th:errors="*{cuenta.saldo}"></div>
 					  	</div>
 					  	
 					  	<div class="form-group row">
-					    	<label for="fechaCreacion" class="col-md-4 col-form-label">Fecha de creación</label>
-					    	<div class="col-md-8">
+					    	<label for="fechaCreacion" class="col-md-3 col-form-label">Fecha de creación</label>
+					    	<div class="col-md-7">
 					      		<input type="date" class="form-control" id="fechaCreacion" th:field="*{cuenta.fechaCreacion}">
+					      		<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('cuenta.fechaCreacion')}" th:errors="*{cuenta.fechaCreacion}"></div>
 					    	</div>
-					    	<div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('cuenta.fechaCreacion')}" th:errors="*{cuenta.fechaCreacion}"></div>
 					  	</div>
 					  	
 					  	<!-- Estado de la cuenta -->
 					  	<fieldset class="form-group row">
-						    <legend class="col-form-label col-md-4 float-md-left pt-0">Estado de Cuenta</legend>
-						    <div class="col-md-8">
+						    <legend class="col-form-label col-md-3 float-md-left pt-0">Estado de Cuenta</legend>
+						    <div class="col-md-7">
 						      <div class="form-check">			      	
 						        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="ACTIVA" th:field="*{cuenta.estado}">
 						        <label class="form-check-label" for="estado">
@@ -183,7 +189,7 @@
 						          INACTIVA
 						        </label>
 						      </div>
-						      <div class="form-text text-danger col-sm-10 offset-2" th:if="${#fields.hasErrors('cuenta.estado')}" th:errors="*{cuenta.estado}"></div>
+						      <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('cuenta.estado')}" th:errors="*{cuenta.estado}"></div>
 						    </div>
 						</fieldset>
 						<!-- GUARDAR -->
