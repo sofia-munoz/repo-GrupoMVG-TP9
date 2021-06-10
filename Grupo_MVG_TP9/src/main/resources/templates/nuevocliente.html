@@ -20,7 +20,7 @@
 					<h3> BENEFICIOS</h3>
 						
 					<!--								 NUEVO						 -->
-						
+					<div class="col-md-8 justify-content-left">
 						<form th:action="@{/beneficio/buscar}" th:object="${beneficio}" th:method="GET">
 							<div class="form-group row">
 								<label for="id" class="col-sm-3 col-form-label">Numero beneficio</label>
@@ -29,7 +29,9 @@
 								</div>
 							</div>
 							<button class="btn btn-primary offset-2" type="submit">Buscar</button>
+							<div class="form-text text-danger col-sm-10 offset-2" th:if="${mensaje}" th:text="${mensaje}"></div>
 						</form>
+					</div>
 						<br><br>
 						<!-- LISTA DE BENEFICIOS -->
 						<div class="table-responsive">

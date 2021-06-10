@@ -49,7 +49,7 @@ public class BeneficioController {
 		ModelAndView model = new ModelAndView("nuevocliente");
 		beneficioService.quitarBeneficioLista(id);
 		model.addObject("cliente", cliente);
-		model.addObject("cliente", beneficio);
+		model.addObject("beneficio", beneficio);
 		model.addObject("beneficosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
 		return model;
 	}
