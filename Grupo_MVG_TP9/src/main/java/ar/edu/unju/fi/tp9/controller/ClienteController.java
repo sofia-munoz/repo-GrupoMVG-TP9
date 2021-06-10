@@ -52,7 +52,7 @@ public class ClienteController {
 		if(resultadoValidacion.hasErrors()) {
 			model = new ModelAndView("nuevocliente");
 			model.addObject("beneficio", beneficio);
-			model.addObject("beneficios", beneficioService.obtenerBeneficiosEncontrados());
+			model.addObject("beneficiosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
 			return model;
 		}
 		else {
@@ -80,7 +80,7 @@ public class ClienteController {
 		Optional<Cliente> cliente = clienteService.getClientePorId(id);
 		model.addObject("cliente", cliente);
 		model.addObject("beneficio", beneficio);
-		model.addObject("beneficiosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
+		model.addObject("beneficiosEncontrados", cliente.get().getBeneficios());
 		return model;
 	}
 	
