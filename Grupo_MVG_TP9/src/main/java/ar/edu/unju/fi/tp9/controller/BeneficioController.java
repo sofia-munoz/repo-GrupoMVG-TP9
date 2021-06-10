@@ -40,7 +40,8 @@ public class BeneficioController {
 			mensaje = "No existe el beneficio";
 			model.addAttribute("mensaje",mensaje);
 		}
-		model.addAttribute("beneficosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
+		model.addAttribute("beneficiosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
+		model.addAttribute("beneficio", beneficio);
 		return "nuevocliente";
 	}
 	
@@ -50,7 +51,7 @@ public class BeneficioController {
 		beneficioService.quitarBeneficioLista(id);
 		model.addObject("cliente", cliente);
 		model.addObject("beneficio", beneficio);
-		model.addObject("beneficosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
+		model.addObject("beneficiosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
 		return model;
 	}
 }

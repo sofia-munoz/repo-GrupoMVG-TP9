@@ -18,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.tp9.model.Beneficio;
 import ar.edu.unju.fi.tp9.model.Cliente;
 import ar.edu.unju.fi.tp9.service.IBeneficioService;
-//import ar.edu.unju.fi.tp8.model.Cuenta;
 import ar.edu.unju.fi.tp9.service.IClienteService;
 import ar.edu.unju.fi.tp9.service.ICuentaService;
 
@@ -40,15 +39,11 @@ public class ClienteController {
 	@Qualifier("beneficioServiceMysql")
 	private IBeneficioService beneficioService;
 	
-	//@Autowired
-	//private Cuenta cuenta;
-	
 	@GetMapping("/cliente/nuevo")
 	public String getNuevoCliente(Model model) {
 		model.addAttribute("cliente", clienteService.getCliente());
-		//model.addAttribute("cuenta", cuenta);
 		model.addAttribute("beneficio", beneficio);
-		model.addAttribute("beneficosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
+		model.addAttribute("beneficiosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
 		return "nuevocliente";
 	}
 	@PostMapping("/cliente/guardar")
@@ -84,6 +79,8 @@ public class ClienteController {
 		ModelAndView model = new ModelAndView("nuevocliente");
 		Optional<Cliente> cliente = clienteService.getClientePorId(id);
 		model.addObject("cliente", cliente);
+		model.addObject("beneficio", beneficio);
+		model.addObject("beneficiosEncontrados", beneficioService.obtenerBeneficiosEncontrados());
 		return model;
 	}
 	
